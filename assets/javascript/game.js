@@ -5,7 +5,7 @@
 ***************************************/
 
 // Global Variables
-var word, wordObject, wrong=0;
+var word, wordObject, wrong=0, guesses=12;
 
 // Global Arrays
 var wordArray;
@@ -65,23 +65,21 @@ function drawWrong(letter)
 
     if(wrongLetters.includes(letter) && !letterGuessed)
     {
+        guesses--;
         $('#letters').append("<span id=wrong-" + letter + ">" + letter + " </span>");
+        $('#guesses').html(guesses);
     }
 }
 
 function checkWrong(letter)
 {
-    if(wrong < wordObject.wordArray.length)
-    {
-    }
-    else if(wrong == wordObject.wordArray.length)
+    if(wrong == wordObject.wordArray.length)
     {
         wrongLetters.push(letter);
         drawWrong(letter);
     }
 }
 
-// Game input
 document.onkeyup = function(event) {
     var input = String.fromCharCode(event.keyCode).toLowerCase();
 
@@ -103,8 +101,6 @@ document.onkeyup = function(event) {
         }
     }
 }
-
-//If input doesn't match add the letter to guessed, and decrement guesses remaining
 
 //If run out of guesses declare the game over, add a loss, and pick a new word (reset the board)
 
