@@ -8,13 +8,8 @@
 var word, wordObject;
 
 // Global Arrays
-var wordArray, guessedLetters;
-
-// Global Booleans
-var revealed;
-
-// Document Elements
-var guiWord;
+var wordArray;
+var guessedLetters=[];
 
 initGame();
 
@@ -55,8 +50,14 @@ function drawSpaces()
 {
     for(i = 0; i < wordObject.wordArray.length; i++)
     {
-        $('#currentWord').append("_ ");
+        $('#currentWord').append("<span id=letter" + i + ">_ </span>");
     }
+}
+
+function drawLetter(letter, position)
+{
+    console.log(letter,position);
+    $('#letter' + position).html(letter + " ");
 }
 
 // Game input
@@ -67,25 +68,14 @@ document.onkeyup = function(event) {
     {
         if(input == wordObject.wordArray[i].toLowerCase())
         {
-            console.log("Input: " + input);
-            console.log("Tested " + wordObject.wordArray[i]);
-            console.log("This letter is in the string array");
+            drawLetter(wordObject.wordArray[i], i);
         }
         else {
-            console.log("Input: " + input);
-            console.log("Tested " + wordObject.wordArray[i]);
-            console.log("this letter is not");
+
         }
     }
 
 }
-
-
-//Display the word on screen as _'s
-
-//Detect input from the user and see if character matches any in word (chartAt, word length)
-
-//If input matches, display the letter on the screen
 
 //If input doesn't match add the letter to guessed, and decrement guesses remaining
 
