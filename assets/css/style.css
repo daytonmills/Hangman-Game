@@ -1,0 +1,93 @@
+body
+{
+    margin: 0 auto;
+    background-image: url('../images/sky.png');
+}
+
+h1
+{
+    text-align: center;
+}
+
+p
+{
+    margin-bottom: 0;
+    color: #fff;
+}
+
+/* Page Structure */
+#ui { z-index: 1000;position: relative;}
+#game { z-index: 1;position: relative; height: 500px;}
+
+/* UI Styling */
+#topbar
+{
+    background-color: #A66851;
+    padding: 25px 0 25px 0;
+    text-align: center;
+}
+
+#infobar
+{
+    background-color: #8B4B35;
+    padding: 5px 0 5px 0;
+    text-align: center;
+}
+
+#infobar .box
+{
+    padding: 5px 5px 5px 5px;
+}
+
+#letterbar
+{
+    background-color: #7B3C29;
+    padding: 5px 5px 5px 5px;
+    text-align: left;
+    color: #fff;
+}
+
+/* Game Background */
+#ground-box
+{
+    height: 500px;
+}
+#cactus
+{
+    z-index: 11;
+    position: absolute;
+    left: 0;
+    bottom: 95px;
+}
+#cactus2
+{
+    z-index: 14;
+    position: absolute;
+    left: 500px;
+    bottom: -65px;
+}
+#sun
+{
+    z-index: 10;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+#road
+{
+    z-index: 13;
+    position: absolute;
+    left: 0;
+    bottom: -200px;
+    overflow: hidden;
+    height: 60%;
+}
+#ground
+{
+    z-index: 12;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -200px;
+}
