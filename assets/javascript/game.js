@@ -76,7 +76,7 @@ function drawSpaces()
 {
     for(i = 0; i < wordObject.wordArray.length; i++)
     {
-        $('#letters-word').append("<span id=letter-" + i + ">_ </span>");
+        $('#letters-word').append("<span id=letter-" + i + ">_</span>");
     }
 }
 

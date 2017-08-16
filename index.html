@@ -7,52 +7,53 @@
         <!-- CSS Resources -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Ewert|Playfair+Display|Sancreek" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
+
     <body>
-        <div class="container-fluid" id="ui">
-            <header>
-                <div class="row" id="topbar">
-                    <div class="col-lg-6">
-                        <h1>Wild West Hangman</h1>
-                    </div>
-                    <div class="col-lg-6">
-                        <h1>Current Word: <span id="letters-word"></span></h1>
-                    </div>
-                </div>
-                <div class="row" id="infobar">
-                    <div class="col-lg-4">
-                        <div class="box" id="boxWins">
-                            <p><i class="fa fa-trophy" aria-hidden="true"></i> Wins: <span id="wins">0</span></p>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="gamebox">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h1>Current Word: <span class="letters" id="letters-word"></span></h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="box" id="boxWins">
+                                    <p><i class="fa fa-trophy" aria-hidden="true"></i> Wins: <span id="wins">0</span></p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="box" id="boxLoss">
+                                    <p><i class="fa fa-bomb" aria-hidden="true"></i> Losses: <span id="loss">0</span></p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="box" id="boxGuess">
+                                    <p><i class="fa fa-question-circle" aria-hidden="true"></i> Guesses: <span id="guesses">12</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p><i class="fa fa-book" aria-hidden="true"></i> Letters Guessed: <span id="letters-guessed"></span></p>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="box" id="boxLoss">
-                            <p><i class="fa fa-bomb" aria-hidden="true"></i> Losses: <span id="loss">0</span></p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="box" id="boxGuess">
-                            <p><i class="fa fa-question-circle" aria-hidden="true"></i> Guesses: <span id="guesses">12</span></p>
+                </div>
+                <div class="col-lg-3">
+                    <div class="infobox">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h1>Instructions</h1>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row" id="letterbar">
-                    <div class="col-lg-12">
-                        <p><i class="fa fa-book" aria-hidden="true"></i> Letters Guessed: <span id="letters-guessed"></span></p>
-                    </div>
-                </div>
-            </header>
-        </div>
-
-        <div class="container-fluid" id="game">
-
-            <div id="ground-box">
-                <img id ="cactus" src="assets/images/cactus.png"/>
-                <img id="cactus2" src="assets/images/cactus4.png"/>
-                <img id="sun" src="assets/images/sun.png"/>
-                <img id="road" src="assets/images/bgRoad.png"/>
-                <img id="ground" src="assets/images/bgDesert.png"/>
             </div>
         </div>
 
