@@ -59,6 +59,28 @@ function drawSpaces()
     }
 }
 
+// Game input
+document.onkeyup = function(event) {
+    var input = String.fromCharCode(event.keyCode).toLowerCase();
+
+    for(i = 0; i < wordObject.wordArray.length; i++)
+    {
+        if(input == wordObject.wordArray[i].toLowerCase())
+        {
+            console.log("Input: " + input);
+            console.log("Tested " + wordObject.wordArray[i]);
+            console.log("This letter is in the string array");
+        }
+        else {
+            console.log("Input: " + input);
+            console.log("Tested " + wordObject.wordArray[i]);
+            console.log("this letter is not");
+        }
+    }
+
+}
+
+
 //Display the word on screen as _'s
 
 //Detect input from the user and see if character matches any in word (chartAt, word length)
