@@ -5,38 +5,40 @@
 ***************************************/
 
 // Global Variables
-var word, wordArray, guiWord;
+var word, wordObject;
+
+// Global Arrays
+var wordArray, guessedLetters;
+
+// Global Booleans
+var revealed;
+
+// Document Elements
+var guiWord;
 
 initGame();
 
-// Game Loops
 function initGame()
 {
-    // Initializing variables.
     word = getWord();
     wordArray = getWordArray();
+    wordObject = {
+        word: word,
+        wordArray: wordArray
+    };
 
-    guiWord = document.getElementById('currentWord');
-
-    console.log(word);
-    console.log(wordArray);
-
-    // Run the game
     runGame();
 }
 
 function runGame()
 {
-
+    console.log(wordObject);
+    drawSpaces();
 }
 
-// Game Functions
 function getWord()
 {
-    // Dictionary of words for gameplay
     var dictionary = ["Cowboy", "Horse", "Desert", "Cactus", "Saloon", "Holster", "Spurs", "Lasso"];
-
-    // Get a random word from the dictionary
     var randomIndex = Math.floor(Math.random() * dictionary.length);
     var randomWord = dictionary[randomIndex];
 
@@ -47,6 +49,14 @@ function getWordArray()
 {
     var splitWordArray = word.split('');
     return splitWordArray;
+}
+
+function drawSpaces()
+{
+    for(i = 0; i < wordObject.wordArray.length; i++)
+    {
+        $('#currentWord').append("_ ");
+    }
 }
 
 //Display the word on screen as _'s
