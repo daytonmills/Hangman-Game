@@ -5,11 +5,11 @@
 ***************************************/
 
 // Global Variables
-var word, wordObject;
+var word, wordObject, wrong=0;
 
 // Global Arrays
 var wordArray;
-var guessedLetters=[];
+var guessedLetter=[];
 
 initGame();
 
@@ -33,16 +33,16 @@ function runGame()
 
 function getWord()
 {
-    var dictionary = ["Cowboy", "Horse", "Desert", "Cactus", "Saloon", "Holster", "Spurs", "Lasso"];
-    var randomIndex = Math.floor(Math.random() * dictionary.length);
-    var randomWord = dictionary[randomIndex];
+    const dictionary = ["Cowboy", "Horse", "Desert", "Cactus", "Saloon", "Holster", "Spurs", "Lasso"];
+    const randomIndex = Math.floor(Math.random() * dictionary.length);
+    const randomWord = dictionary[randomIndex];
 
     return randomWord;
 }
 
 function getWordArray()
 {
-    var splitWordArray = word.split('');
+    let splitWordArray = word.split('');
     return splitWordArray;
 }
 
@@ -56,25 +56,43 @@ function drawSpaces()
 
 function drawLetter(letter, position)
 {
-    console.log(letter,position);
     $('#letter' + position).html(letter + " ");
+}
+
+function checkWrong()
+{
+    if(wrong < wordObject.wordArray.length)
+    {
+        console.log("Theres a letter somewhere");
+    }
+    else if(wrong == wordObject.wordArray.length)
+    {
+        console.log("This letter isn't anywhere");
+    }
 }
 
 // Game input
 document.onkeyup = function(event) {
     var input = String.fromCharCode(event.keyCode).toLowerCase();
 
-    for(i = 0; i < wordObject.wordArray.length; i++)
+    for(let i = 0; i < wordObject.wordArray.length; i++)
     {
-        if(input == wordObject.wordArray[i].toLowerCase())
+        if(input === wordObject.wordArray[i].toLowerCase())
         {
             drawLetter(wordObject.wordArray[i], i);
+            wrong = 0;
         }
-        else {
-
+        else
+        {
+            wrong = wrong+1;
+            console.log(wrong);
+            checkWrong();
+        }
+        if( i === wordObject.wordArray.length -1)
+        {
+            wrong = 0;
         }
     }
-
 }
 
 //If input doesn't match add the letter to guessed, and decrement guesses remaining
