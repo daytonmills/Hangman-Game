@@ -9,7 +9,7 @@ var word, wordObject, wrong=0;
 
 // Global Arrays
 var wordArray;
-var guessedLetter=[];
+var wrongLetters=[];
 
 initGame();
 
@@ -59,15 +59,25 @@ function drawLetter(letter, position)
     $('#letter' + position).html(letter + " ");
 }
 
-function checkWrong()
+function drawWrong(letter)
+{
+    var letterGuessed = $('#wrong-' + letter).text().indexOf(letter) > -1;
+
+    if(wrongLetters.includes(letter) && !letterGuessed)
+    {
+        $('#letters').append("<span id=wrong-" + letter + ">" + letter + " </span>");
+    }
+}
+
+function checkWrong(letter)
 {
     if(wrong < wordObject.wordArray.length)
     {
-        console.log("Theres a letter somewhere");
     }
     else if(wrong == wordObject.wordArray.length)
     {
-        console.log("This letter isn't anywhere");
+        wrongLetters.push(letter);
+        drawWrong(letter);
     }
 }
 
@@ -85,8 +95,7 @@ document.onkeyup = function(event) {
         else
         {
             wrong = wrong+1;
-            console.log(wrong);
-            checkWrong();
+            checkWrong(input);
         }
         if( i === wordObject.wordArray.length -1)
         {
