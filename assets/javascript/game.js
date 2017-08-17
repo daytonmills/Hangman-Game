@@ -12,39 +12,54 @@ var guesses=12;
 var wins=0;
 var loss=0;
 var running;
+var winning=false;
+var losing=false;
+
+$('#game').hide();
+
+document.getElementById("music").play();
 
 function gameOver()
 {
-    console.log("Game Over");
     running=false;
+    losing=true;
     loss+=1;
-    console.log(loss);
-    $("#loss").html(loss);
-    gameReset();
+    var taken = 12-guesses;
+    $('#loss').html(loss);
+    $('#game').hide();
+    $('#loser').html("<div class='loser-wrapper'> <div class='loserbox'> <div class='row loserbox-header'> <div class='col-lg-12'> <h1 id='winh1'><i class='fa fa-bomb' aria-hidden='true'></i> loser <i class='fa fa-bomb' aria-hidden='true'></i></h1> </div> </div> <div class='row loserbox-header'> <div class='col-lg-12'> <h2 id='winh2'>You could not guess the word.</h2> <hr/> </div> </div> <div class='row'> <div class='col-lg-12'> <h3 id='winh3'><i class='fa fa-quote-left' aria-hidden='true'></i> Word Played: <span id='playedWord'>"+ wordObject.word +"</span></h3> </div> </div> <div class='row'> <div class='col-lg-12'> <h3 id='winh3'><i class='fa fa-question-circle' aria-hidden='true'></i> Guesses taken: <span id='playedWord'>"+ taken +"</span></h3> </div> </div> <div class='row'> <div class='col-lg-12'> <hr/> <h5>Press any key to restart...</h5> </div> </div> </div> </div>");
+    $('#loser').slideDown("slow");
+    document.getElementById("lostSound").play();
 }
 
 function gameWin()
 {
-    console.log("Game win")
     running=false;
+    winning=true;
     wins+=1;
-    console.log(wins);
-    $("#wins").html(wins);
-    gameReset();
+    var taken = 12-guesses;
+    $('#wins').html(wins);
+    $('#game').hide();
+    $('#winner').html("<div class='winner-wrapper'> <div class='winnerbox'> <div class='row winnerbox-header'> <div class='col-lg-12'> <h1 id='winh1'><i class='fa fa-trophy' aria-hidden='true'></i> Winner <i class='fa fa-trophy' aria-hidden='true'></i></h1> </div> </div> <div class='row winnerbox-header'> <div class='col-lg-12'> <h2 id='winh2'>You guessed the word correctly.</h2> <hr/> </div> </div> <div class='row'> <div class='col-lg-12'> <h3 id='winh3'><i class='fa fa-quote-left' aria-hidden='true'></i> Word Played: <span id='playedWord'>"+ wordObject.word +"</span></h3> </div> </div> <div class='row'> <div class='col-lg-12'> <h3 id='winh3'><i class='fa fa-question-circle' aria-hidden='true'></i> Guesses taken: <span id='playedWord'>"+ taken +"</span></h3> </div> </div> <div class='row'> <div class='col-lg-12'> <hr/> <h5>Press any key to restart...</h5> </div> </div> </div> </div>");
+    $('#winner').slideDown("slow");
+    document.getElementById("winSound").play();
 }
 
 function gameReset()
 {
     guesses=12;
+    $('#game').show();
     $('#guesses').html(guesses);
-    $('#letters-word').html("");
-    $('#letters-guessed').html("");
+    $('#letters-word').html('');
+    $('#letters-guessed').html('');
+    gameInit();
 }
 
 function gameInit()
 {
-    console.log("Game Init");
     running=true;
+    winning=false;
+    losing=false;
 
     word = getWord();
     wordArray = getWordArray();
@@ -55,7 +70,7 @@ function gameInit()
 
     function getWord()
     {
-        const dictionary = ["Cowboy", "Horse", "Desert", "Cactus", "Saloon", "Holster", "Spurs", "Lasso"];
+        const dictionary = ['Cowboy', 'Horse', 'Desert', 'Cactus', 'Saloon', 'Holster', 'Spurs', 'Lasso'];
         const randomIndex = Math.floor(Math.random() * dictionary.length);
         const randomWord = dictionary[randomIndex];
 
@@ -69,14 +84,13 @@ function gameInit()
     }
 
     drawSpaces();
-    console.log(wordObject);
 }
 
 function drawSpaces()
 {
     for(i = 0; i < wordObject.wordArray.length; i++)
     {
-        $('#letters-word').append("<span id=letter-" + i + ">_ </span>");
+        $('#letters-word').append('<span id=letter-' + i + '>_</span>');
     }
 }
 
@@ -97,7 +111,7 @@ function drawWrong(letter)
     if(wrongLetters.includes(letter) && !letterGuessed)
     {
         guesses--;
-        $('#letters-guessed').append("<span class=wrong-" + letter + ">" + letter + " </span>");
+        $('#letters-guessed').append('<span id=wrong-' + letter + '>' + letter + ' </span>');
         $('#guesses').html(guesses);
 
         if(guesses === 0)
@@ -116,10 +130,17 @@ function checkWrong(letter)
     }
 }
 
+function letterSound(letter)
+{
+    document.getElementById(letter).play();
+}
+
 document.onkeyup = function(event) {
     if(running)
     {
         var input = String.fromCharCode(event.keyCode).toLowerCase();
+
+        letterSound(input);
 
         for(let i = 0; i < wordObject.wordArray.length; i++)
         {
@@ -140,10 +161,17 @@ document.onkeyup = function(event) {
         }
     }
     else if(!running){
-        gameInit();
-        console.log("Game Key");
+        if(winning)
+        {
+            $('#winner').slideUp("slow", gameReset());
+        }
+        else if(losing)
+        {
+            $('#loser').slideUp("slow", gameReset());
+        }
+        else if(!winning)
+        {
+            $('#welcome').slideUp("slow", gameReset());
+        }
     }
 }
-
-
-//If user guesses all letters correctly, add a win and display winning animation (reset the board)

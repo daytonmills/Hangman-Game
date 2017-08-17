@@ -1,93 +1,116 @@
 body
 {
     margin: 0 auto;
-    background-image: url('../images/sky.png');
+    background: url('../images/full_PNG.png') no-repeat center center fixed;;
+    font-family: 'Playfair Display', serif;
+    overflow: hidden;
 }
 
-h1
+h1,h2,h3,h4,h5,small
 {
-    text-align: center;
+    margin: 0;
+    display: inline;
+    color: #fbca90;
 }
-
-p
+.game
 {
-    margin-bottom: 0;
-    color: #fff;
+    position: absolute;
 }
 
-/* Page Structure */
-#ui { z-index: 1000;position: relative;}
-#game { z-index: 1;position: relative; height: 500px;}
+.gamebox
+{
+    float: left;
+    width: 100%;
+    margin: 125px 0 0 0;
+    padding: 30px;
+    background-color: #A66851;
+    box-shadow: 0px 0px 10px #8B4B35;
+    border: dashed 1px #fbca90;
+}
 
-/* UI Styling */
-#topbar
+.letterbox
+{
+    float: left;
+    width: 100%;
+    margin: 30px 0 0 0;
+    padding: 30px;
+    background-color: #A66851;
+    box-shadow: 0px 0px 10px #8B4B35;
+    border: dashed 1px #fbca90;
+}
+
+.letters
+{
+    letter-spacing: 5px;
+}
+
+.infobox
+{
+    float: right;
+    width: 100%;
+    margin: 125px 0 0 0;
+    padding: 30px;
+    background-color: #A66851;
+    box-shadow: 0px 0px 10px #8B4B35;
+    border: dashed 1px #fbca90;
+}
+
+.staticon
 {
     background-color: #A66851;
-    padding: 25px 0 25px 0;
+    color: #fbca90;
+    font-size: 28px;
+}
+
+.statbox
+{
+    background-color: #A66851;
+    color: #fbca90;
+    padding: 5px;
+}
+
+.container
+{
+    position: relative;
+    z-index: 1;
+}
+
+.welcomebox,
+.winnerbox,
+.loserbox
+{
+    width: 600px;
+    margin: 100px auto;
+    padding: 30px;
+    position: relative;
+    z-index: 2;
+    background-color: #A66851;
+    box-shadow: 0px 0px 10px #8B4B35;
+    border: dashed 1px #fbca90;
+}
+
+.welcome-wrapper,
+.winner-wrapper,
+.loser-wrapper
+{
+    position: relative;
+    width: 100%;
+}
+
+.welcomebox-header,
+.winnerbox-header,
+.loserbox-header
+{
     text-align: center;
 }
 
-#infobar
+#winh1
 {
-    background-color: #8B4B35;
-    padding: 5px 0 5px 0;
-    text-align: center;
+    font-family: 'Ewert', cursive;
+    font-size: 64px;
 }
 
-#infobar .box
+#winh3
 {
-    padding: 5px 5px 5px 5px;
-}
-
-#letterbar
-{
-    background-color: #7B3C29;
-    padding: 5px 5px 5px 5px;
-    text-align: left;
-    color: #fff;
-}
-
-/* Game Background */
-#ground-box
-{
-    height: 500px;
-}
-#cactus
-{
-    z-index: 11;
-    position: absolute;
-    left: 0;
-    bottom: 95px;
-}
-#cactus2
-{
-    z-index: 14;
-    position: absolute;
-    left: 500px;
-    bottom: -65px;
-}
-#sun
-{
-    z-index: 10;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-}
-#road
-{
-    z-index: 13;
-    position: absolute;
-    left: 0;
-    bottom: -200px;
-    overflow: hidden;
-    height: 60%;
-}
-#ground
-{
-    z-index: 12;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: -200px;
+    font-size: 24px;
 }

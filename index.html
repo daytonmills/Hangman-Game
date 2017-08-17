@@ -7,57 +7,142 @@
         <!-- CSS Resources -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Ewert|Playfair+Display|Sancreek" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
+
     <body>
-        <div class="container-fluid" id="ui">
-            <header>
-                <div class="row" id="topbar">
-                    <div class="col-lg-6">
-                        <h1>Wild West Hangman</h1>
-                    </div>
-                    <div class="col-lg-6">
-                        <h1>Current Word: <span id="letters-word"></span></h1>
-                    </div>
-                </div>
-                <div class="row" id="infobar">
-                    <div class="col-lg-4">
-                        <div class="box" id="boxWins">
-                            <p><i class="fa fa-trophy" aria-hidden="true"></i> Wins: <span id="wins">0</span></p>
+        <div id="welcome">
+            <div class='welcome-wrapper'>
+                <div class='welcomebox'>
+                    <div class='row welcomebox-header'>
+                        <div class='col-lg-12'>
+                            <h1 id='winh1'>Howdy Cowboy</h1>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="box" id="boxLoss">
-                            <p><i class="fa fa-bomb" aria-hidden="true"></i> Losses: <span id="loss">0</span></p>
+                    <div class='row welcomebox-header'>
+                        <div class='col-lg-12'>
+                            <h2 id='winh2'>Can you save my partner?<h2>
+                            <hr/>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="box" id="boxGuess">
-                            <p><i class="fa fa-question-circle" aria-hidden="true"></i> Guesses: <span id="guesses">12</span></p>
+                    <div class='row'>
+                        <div class='col-lg-12'>
+                            <h3 id='winh3'>You have 12 tries to guess a random word.</h3>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-lg-12'>
+                            <h3 id='winh3'>Use your keyboard to guess a letter</h3>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-lg-12'>
+                            <hr/>
+                            <h5>Press any key to start...</h5>
                         </div>
                     </div>
                 </div>
-                <div class="row" id="letterbar">
-                    <div class="col-lg-12">
-                        <p><i class="fa fa-book" aria-hidden="true"></i> Letters Guessed: <span id="letters-guessed"></span></p>
-                    </div>
-                </div>
-            </header>
-        </div>
-
-        <div class="container-fluid" id="game">
-
-            <div id="ground-box">
-                <img id ="cactus" src="assets/images/cactus.png"/>
-                <img id="cactus2" src="assets/images/cactus4.png"/>
-                <img id="sun" src="assets/images/sun.png"/>
-                <img id="road" src="assets/images/bgRoad.png"/>
-                <img id="ground" src="assets/images/bgDesert.png"/>
             </div>
         </div>
 
+        <div id="winner" style="display:none;"></div>
+        <div id="loser" style="display:none;"></div>
+
+        <div class="container" id="game">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="gamebox">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h1>Current Word: <span class="letters" id="letters-word"></span></h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="letterbox">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h4><i class="fa fa-book" aria-hidden="true"></i> Letters Guessed: <span id="letters-guessed"></span></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 ml-auto">
+                    <div class="infobox">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h1>Statistics</h1>
+                                <hr/>
+                                <div class="row">
+                                    <div class="col-lg-3 staticon">
+                                        <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="col-lg-8 statbox">
+                                        <h4 id="guesses">12</h4><small> Guesses</small>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 staticon">
+                                        <i class="fa fa-trophy" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="col-lg-8 statbox">
+                                        <h4 id="wins">0</h4><small> Wins</small>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 staticon">
+                                        <i class="fa fa-bomb" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="col-lg-8 statbox">
+                                        <h4 id="loss">0</h4><small> Losses</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Audio Library -->
+        <audio id="music">
+            <source src="assets/sound/music.mp3" type="audio/mpeg">
+        </audio>
+
+        <audio id="winSound"><source src="assets/sound/win.mp3" type="audio/mpeg"></audio>
+        <audio id="lostSound"><source src="assets/sound/lost.mp3" type="audio/mpeg"></audio>
+
+        <!-- Yes I know this is a mess -->
+        <audio id="a"><source src="assets/sound/a.wav" type="audio/wav"></audio>
+        <audio id="b"><source src="assets/sound/b.wav" type="audio/wav"></audio>
+        <audio id="c"><source src="assets/sound/c.wav" type="audio/wav"></audio>
+        <audio id="d"><source src="assets/sound/d.wav" type="audio/wav"></audio>
+        <audio id="e"><source src="assets/sound/e.wav" type="audio/wav"></audio>
+        <audio id="f"><source src="assets/sound/f.wav" type="audio/wav"></audio>
+        <audio id="g"><source src="assets/sound/g.wav" type="audio/wav"></audio>
+        <audio id="h"><source src="assets/sound/h.wav" type="audio/wav"></audio>
+        <audio id="i"><source src="assets/sound/i.wav" type="audio/wav"></audio>
+        <audio id="j"><source src="assets/sound/j.wav" type="audio/wav"></audio>
+        <audio id="k"><source src="assets/sound/k.wav" type="audio/wav"></audio>
+        <audio id="l"><source src="assets/sound/l.wav" type="audio/wav"></audio>
+        <audio id="m"><source src="assets/sound/m.wav" type="audio/wav"></audio>
+        <audio id="n"><source src="assets/sound/n.wav" type="audio/wav"></audio>
+        <audio id="o"><source src="assets/sound/o.wav" type="audio/wav"></audio>
+        <audio id="p"><source src="assets/sound/p.wav" type="audio/wav"></audio>
+        <audio id="q"><source src="assets/sound/q.wav" type="audio/wav"></audio>
+        <audio id="r"><source src="assets/sound/r.wav" type="audio/wav"></audio>
+        <audio id="s"><source src="assets/sound/s.wav" type="audio/wav"></audio>
+        <audio id="t"><source src="assets/sound/t.wav" type="audio/wav"></audio>
+        <audio id="u"><source src="assets/sound/u.wav" type="audio/wav"></audio>
+        <audio id="v"><source src="assets/sound/v.wav" type="audio/wav"></audio>
+        <audio id="w"><source src="assets/sound/w.wav" type="audio/wav"></audio>
+        <audio id="x"><source src="assets/sound/x.wav" type="audio/wav"></audio>
+        <audio id="y"><source src="assets/sound/y.wav" type="audio/wav"></audio>
+        <audio id="z"><source src="assets/sound/z.wav" type="audio/wav"></audio>
+
         <!-- Javascript Resources -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
