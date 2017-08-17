@@ -97,7 +97,7 @@ function drawWrong(letter)
     if(wrongLetters.includes(letter) && !letterGuessed)
     {
         guesses--;
-        $('#letters-guessed').append("<span class=wrong-" + letter + ">" + letter + " </span>");
+        $('#letters-guessed').append("<span id=wrong-" + letter + ">" + letter + " </span>");
         $('#guesses').html(guesses);
 
         if(guesses === 0)

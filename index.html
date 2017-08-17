@@ -21,35 +21,45 @@
                                 <h1>Current Word: <span class="letters" id="letters-word"></span></h1>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="box" id="boxWins">
-                                    <p><i class="fa fa-trophy" aria-hidden="true"></i> Wins: <span id="wins">0</span></p>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="box" id="boxLoss">
-                                    <p><i class="fa fa-bomb" aria-hidden="true"></i> Losses: <span id="loss">0</span></p>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="box" id="boxGuess">
-                                    <p><i class="fa fa-question-circle" aria-hidden="true"></i> Guesses: <span id="guesses">12</span></p>
-                                </div>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="letterbox">
                         <div class="row">
                             <div class="col-lg-12">
-                                <p><i class="fa fa-book" aria-hidden="true"></i> Letters Guessed: <span id="letters-guessed"></span></p>
+                                <h4><i class="fa fa-book" aria-hidden="true"></i> Letters Guessed: <span id="letters-guessed"></span></h4>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 ml-auto">
                     <div class="infobox">
                         <div class="row">
                             <div class="col-lg-12">
-                                <h1>Instructions</h1>
+                                <h1>Statistics</h1>
+                                <hr/>
+                                <div class="row">
+                                    <div class="col-lg-3 staticon">
+                                        <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="col-lg-8 statbox">
+                                        <h4 id="guesses">12</h4><small> Guesses</small>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 staticon">
+                                        <i class="fa fa-trophy" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="col-lg-8 statbox">
+                                        <h4 id="wins">0</h4><small> Wins</small>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 staticon">
+                                        <i class="fa fa-bomb" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="col-lg-8 statbox">
+                                        <h4 id="loss">0</h4><small> Losses</small>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
