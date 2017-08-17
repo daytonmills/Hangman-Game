@@ -26,8 +26,7 @@ function gameOver()
     loss+=1;
     var taken = 12-guesses;
     $('#loss').html(loss);
-    $('#game').hide();
-    $('#loser').html("<div class='loser-wrapper'> <div class='loserbox'> <div class='row loserbox-header'> <div class='col-lg-12'> <h1 id='winh1'><i class='fa fa-bomb' aria-hidden='true'></i> loser <i class='fa fa-bomb' aria-hidden='true'></i></h1> </div> </div> <div class='row loserbox-header'> <div class='col-lg-12'> <h2 id='winh2'>You could not guess the word.</h2> <hr/> </div> </div> <div class='row'> <div class='col-lg-12'> <h3 id='winh3'><i class='fa fa-quote-left' aria-hidden='true'></i> Word Played: <span id='playedWord'>"+ wordObject.word +"</span></h3> </div> </div> <div class='row'> <div class='col-lg-12'> <h3 id='winh3'><i class='fa fa-question-circle' aria-hidden='true'></i> Guesses taken: <span id='playedWord'>"+ taken +"</span></h3> </div> </div> <div class='row'> <div class='col-lg-12'> <hr/> <h5>Press any key to restart...</h5> </div> </div> </div> </div>");
+    $('#loser').html("<div class='loser-wrapper'> <div class='loserbox'> <div class='row loserbox-header'> <div class='col-lg-12'> <h1 id='winh1'><i class='fa fa-bomb' aria-hidden='true'></i> loser <i class='fa fa-bomb' aria-hidden='true'></i></h1> </div> </div> <div class='row loserbox-header'> <div class='col-lg-12'> <h2 id='winh2'>You could not guess the word.</h2> <hr/> </div> </div> <div class='row'> <div class='col-lg-12'> <h3 id='winh3'><i class='fa fa-quote-left' aria-hidden='true'></i> Word Played: <span id='playedWord'>"+ wordObject.word +"</span></h3> </div> </div> <div class='row'> <div class='col-lg-12'> <h3 id='winh3'><i class='fa fa-question-circle' aria-hidden='true'></i> Guesses taken: <span id='playedWord'>"+ taken +"</span></h3> </div> </div> <div class='row'> <div class='col-lg-12'> <hr/> <h5>Press any key to continue...</h5> </div> </div> </div> </div>");
     $('#loser').slideDown("slow");
     document.getElementById("lostSound").play();
 }
@@ -39,8 +38,7 @@ function gameWin()
     wins+=1;
     var taken = 12-guesses;
     $('#wins').html(wins);
-    $('#game').hide();
-    $('#winner').html("<div class='winner-wrapper'> <div class='winnerbox'> <div class='row winnerbox-header'> <div class='col-lg-12'> <h1 id='winh1'><i class='fa fa-trophy' aria-hidden='true'></i> Winner <i class='fa fa-trophy' aria-hidden='true'></i></h1> </div> </div> <div class='row winnerbox-header'> <div class='col-lg-12'> <h2 id='winh2'>You guessed the word correctly.</h2> <hr/> </div> </div> <div class='row'> <div class='col-lg-12'> <h3 id='winh3'><i class='fa fa-quote-left' aria-hidden='true'></i> Word Played: <span id='playedWord'>"+ wordObject.word +"</span></h3> </div> </div> <div class='row'> <div class='col-lg-12'> <h3 id='winh3'><i class='fa fa-question-circle' aria-hidden='true'></i> Guesses taken: <span id='playedWord'>"+ taken +"</span></h3> </div> </div> <div class='row'> <div class='col-lg-12'> <hr/> <h5>Press any key to restart...</h5> </div> </div> </div> </div>");
+    $('#winner').html("<div class='winner-wrapper'> <div class='winnerbox'> <div class='row winnerbox-header'> <div class='col-lg-12'> <h1 id='winh1'><i class='fa fa-trophy' aria-hidden='true'></i> Winner <i class='fa fa-trophy' aria-hidden='true'></i></h1> </div> </div> <div class='row winnerbox-header'> <div class='col-lg-12'> <h2 id='winh2'>You guessed the word correctly.</h2> <hr/> </div> </div> <div class='row'> <div class='col-lg-12'> <h3 id='winh3'><i class='fa fa-quote-left' aria-hidden='true'></i> Word Played: <span id='playedWord'>"+ wordObject.word +"</span></h3> </div> </div> <div class='row'> <div class='col-lg-12'> <h3 id='winh3'><i class='fa fa-question-circle' aria-hidden='true'></i> Guesses taken: <span id='playedWord'>"+ taken +"</span></h3> </div> </div> <div class='row'> <div class='col-lg-12'> <hr/> <h5>Press any key to continue...</h5> </div> </div> </div> </div>");
     $('#winner').slideDown("slow");
     document.getElementById("winSound").play();
 }
@@ -70,7 +68,7 @@ function gameInit()
 
     function getWord()
     {
-        const dictionary = ['Cowboy', 'Horse', 'Desert', 'Cactus', 'Saloon', 'Holster', 'Spurs', 'Lasso'];
+        const dictionary = ['Cowboy', 'Horse', 'Desert', 'Cactus', 'Saloon', 'Holster', 'Spurs', 'Lasso', 'Cattle', 'Wrangler', 'Rope', 'Horseshoe', 'Saddle', 'Wagon', 'Buckaroo', 'Gallop', 'Giddyup', 'Bronco', 'Indians', 'Ranch', 'Teepee', 'Stampede', 'Stallion', 'Mustang', 'Leather', 'Horns', 'Sand', 'Dust', 'Jeans', 'Boots'];
         const randomIndex = Math.floor(Math.random() * dictionary.length);
         const randomWord = dictionary[randomIndex];
 
