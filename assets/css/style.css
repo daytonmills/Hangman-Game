@@ -1,9 +1,9 @@
 body
 {
     margin: 0 auto;
-    background-image: url('../images/full_PNG.png');
-    background-size: cover;
+    background: url('../images/full_PNG.png') no-repeat center center fixed;;
     font-family: 'Playfair Display', serif;
+    overflow: hidden;
 }
 
 h1,h2,h3,h4,h5,small
@@ -11,6 +11,10 @@ h1,h2,h3,h4,h5,small
     margin: 0;
     display: inline;
     color: #fbca90;
+}
+.game
+{
+    position: absolute;
 }
 
 .gamebox
@@ -71,7 +75,9 @@ h1,h2,h3,h4,h5,small
     z-index: 1;
 }
 
-.winnerbox
+.welcomebox,
+.winnerbox,
+.loserbox
 {
     width: 600px;
     margin: 100px auto;
@@ -83,13 +89,17 @@ h1,h2,h3,h4,h5,small
     border: dashed 1px #fbca90;
 }
 
-.winner-wrapper
+.welcome-wrapper,
+.winner-wrapper,
+.loser-wrapper
 {
-    position: absolute;
+    position: relative;
     width: 100%;
 }
 
-.winnerbox-header
+.welcomebox-header,
+.winnerbox-header,
+.loserbox-header
 {
     text-align: center;
 }
